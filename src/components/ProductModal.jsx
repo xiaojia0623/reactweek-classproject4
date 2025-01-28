@@ -44,9 +44,10 @@ const ProductModal = ({modalMode, tempProduct, isOpen, setIsOpen, getProducts}) 
                 }
             })
             alert('恭喜! 新增成功');
+            handleCloseProductModal();
         }catch (error) {
-            alert('新增產品失敗');
-            
+            alert('新增產品失敗，請檢查輸入資料');
+            setIsProductModalOpen(true);
         }
     }
     //串接 編輯產品api
@@ -89,7 +90,6 @@ const ProductModal = ({modalMode, tempProduct, isOpen, setIsOpen, getProducts}) 
 
     //圖片上傳
     const handleFileChange = async (e) => {
-        console.log(e.target);
     
         const file = e.target.files[0];
         const formData = new FormData();
@@ -142,6 +142,7 @@ const ProductModal = ({modalMode, tempProduct, isOpen, setIsOpen, getProducts}) 
             handleCloseProductModal();
         }catch (error) {
             alert('更新產品失敗')
+            
         }
     }
 
